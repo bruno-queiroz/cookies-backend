@@ -27,6 +27,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
+app.set("trust proxy", 1);
 
 app.get("/add-cookie", (req, res) => {
   console.log("testing route add");
@@ -34,7 +35,8 @@ app.get("/add-cookie", (req, res) => {
   res.cookie("cookie-test", "test values", {
     httpOnly: true,
     maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
-    domain: "https://cookies-back.onrender.com",
+    sameSite: "none",
+    secure: true,
   });
 
   res.json({ msg: "cookie added" });
