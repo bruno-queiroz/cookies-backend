@@ -28,15 +28,17 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
+const cookieOptions = {
+  httpOnly: true,
+  maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
+  sameSite: "none",
+  secure: true,
+};
+
 app.get("/add-cookie", (req, res) => {
   console.log("testing route add");
 
-  res.cookie("cookie-test", "test values", {
-    httpOnly: true,
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
-    sameSite: "none",
-    secure: true,
-  });
+  res.cookie("cookie-test", "test values", cookieOptions);
 
   res.json({ msg: "cookie added" });
 });
@@ -44,7 +46,7 @@ app.get("/add-cookie", (req, res) => {
 app.get("/remove-cookie", (req, res) => {
   console.log("testing route remove");
 
-  res.clearCookie("cookie-test");
+  res.clearCookie("cookie-test", cookieOptions);
 
   res.json({ msg: "cookie removed" });
 });
