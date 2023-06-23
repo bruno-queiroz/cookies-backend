@@ -46,14 +46,7 @@ app.get("/add-cookie", (req, res) => {
 app.get("/remove-cookie", (req, res) => {
   console.log("testing route remove");
 
-  res.clearCookie("cookie-test", {
-    httpOnly: true,
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
-    sameSite: "none",
-    secure: true,
-    domain: "https://cookies-back.onrender.com",
-    path: "/",
-  });
+  res.clearCookie("cookie-test", cookieOptions);
 
   res.json({ msg: "cookie removed" });
 });
