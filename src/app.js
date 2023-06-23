@@ -27,7 +27,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-app.set("trust proxy", 1);
 
 app.get("/add-cookie", (req, res) => {
   console.log("testing route add");
