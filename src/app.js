@@ -34,8 +34,6 @@ app.get("/add-cookie", (req, res) => {
   res.cookie("cookie-test", "test values", {
     httpOnly: true,
     maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
-    sameSite: "none",
-    secure: true,
   });
 
   res.json({ msg: "cookie added" });
