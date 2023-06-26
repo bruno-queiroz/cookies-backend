@@ -16,6 +16,7 @@ const allowedUrls = [
 ];
 const corsOptions = {
   origin: function (origin, callback) {
+    console.log(origin);
     if (allowedUrls.indexOf(origin || "") !== -1) {
       callback(null, true);
     } else {
