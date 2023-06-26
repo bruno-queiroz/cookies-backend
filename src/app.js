@@ -13,6 +13,7 @@ const allowedUrls = [
   "http://localhost:3000",
   "http://localhost:5174",
   "https://cookies-front-end.vercel.app",
+  "https://cookies-front.vercel.app/",
 ];
 const corsOptions = {
   origin: function (origin, callback) {
