@@ -34,7 +34,7 @@ app.use(cookieParser());
 const cookieOptions = {
   httpOnly: true,
   maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
-  sameSite: "none",
+  sameSite: "lax",
   secure: true,
 };
 
