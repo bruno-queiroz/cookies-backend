@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 const cookieOptions = {
-  httpOnly: true,
+  httpOnly: false,
   maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
   sameSite: "none",
   secure: false,
