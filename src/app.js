@@ -36,7 +36,6 @@ const cookieOptions = {
   maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
   sameSite: "none",
   secure: false,
-  domain: "localhost",
 };
 
 app.get("/add-cookie", (req, res) => {
